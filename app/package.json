@@ -1,0 +1,17 @@
+{
+  "name": "limenarchis",
+  "description": "Limenarchis - Menubar App used for context switching and port forwarding management for Kubernetes",
+  "version": "0.1.0",
+  "private": true,
+  "main": "main.js",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^2.0.2"
+  },
+  "dependencies": {
+    "electron-menubar": "^1.0.1"
+  },
+  "scripts": {
+    "electron": "electron ."
+  }
+}
