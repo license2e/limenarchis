@@ -1,0 +1,57 @@
+@import "../node_modules/spectre.css/dist/spectre.css";
+@import "../node_modules/spectre.css/dist/spectre-icons.css";
+/* @import "./styles/font.css"; */
+
+html {
+  background-color: transparent;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  margin: auto;
+  font-size: .8rem;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  color: #7e899b;
+  width: 100%;
+  background-color: transparent;
+  overflow: hidden;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  color: #1c2023;
+  font-weight: 300;
+}
+
+#root {
+  background-color: rgba(255,255,255,1);
+  border-radius: 5px;
+  border: 1px solid #454d5d; /*#bbc1cd;*/
+  position: fixed;
+  top: 9px;
+  bottom: 10px;
+  right: 10px;
+  left: 10px;
+  overflow: hidden;
+}
+
+#root::before {
+  content: "";
+  position: fixed;
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #454d5d; /*#bbc1cd;*/
+  left: 50%;
+  top: 0;
+  margin-left: -10px;
+}
+
+.btn-stretch {
+  width: 100%;
+}

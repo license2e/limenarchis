@@ -1,0 +1,23 @@
+{
+  "name": "limenarchis",
+  "description": "Limenarchis - Menubar App used for context switching and port forwarding management for Kubernetes",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "./",
+  "dependencies": {
+    "js-yaml": "^3.12.0",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
+    "react-scripts": "1.1.4",
+    "spectre.css": "^0.5.1"
+  },
+  "scripts": {
+    "launch": "yarn build && yarn launch-app",
+    "launch-app": "cd ./app && yarn electron",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "license": "MIT"
+}
