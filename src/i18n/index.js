@@ -6,4 +6,5 @@ module.exports = {
   windowResized: 'Window successfully resized.',
   errorIPCBridge: 'IPC Bridge not setup correctly.',
   errorInvalidContextName: 'Invalid context name.',
+  errorServerNotStarted: 'Port forward server not started.',
 };

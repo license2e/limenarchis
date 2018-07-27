@@ -5,6 +5,7 @@ import Setup from './components/Setup';
 import Settings from './components/Settings';
 import Loading from './components/Loading';
 import Contexts from './components/Contexts';
+import PortForward from './components/PortForward';
 import { getVersion } from './utils';
 import './App.css';
 
@@ -60,7 +61,7 @@ class App extends Component {
         );
       } else if (tab === 'port-forwarding') {
         content = (
-          <div>test</div>
+          <PortForward />
         );
       } else {
         content = (

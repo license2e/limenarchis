@@ -24,7 +24,7 @@ const saveSettings = (data) => {
         success: true,
       });
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       reject(err);
     }
   });

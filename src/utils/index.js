@@ -30,3 +30,15 @@ export const getVersion = () => {
 export const saveSettings = (settings) => {
   return sendMessage('saveSettings', settings);
 }
+
+export const portForwardStart = () => {
+  return sendMessage('portForwardStart');
+}
+
+export const portForwardServices = () => {
+  return sendMessage('portForwardServices');
+}
+
+export const portForwardStop = () => {
+  return sendMessage('portForwardStop');
+}

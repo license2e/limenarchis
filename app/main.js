@@ -1,7 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 const electron = require('electron');
-const { app, ipcMain, shell } = electron;
+const { app, ipcMain } = electron;
 const { Menubar } = require('electron-menubar');
 // const yaml = require('js-yaml');
 const i18n = require('../src/i18n');

@@ -40,7 +40,7 @@ class Contexts {
               }));
             });
           } catch (err) {
-            console.log(err);
+            // console.log(err);
             reject(err);
           }
           resolve({

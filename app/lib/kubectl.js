@@ -1,5 +1,5 @@
 'use strict';
-const { spawnSync } = require('child_process');
+const { spawnSync, spawn } = require('child_process');
 
 class Kubectl {
   constructor(options = {}) {
@@ -17,7 +17,7 @@ class Kubectl {
     return new Promise((resolve, reject) => {
       let error = null;
 
-      cmdSpawn = spawnSync(this.binary, args)
+      cmdSpawn = spawnSync(this.binary, args);
 
       if (cmdSpawn.error) {
         const err = new Error(cmdSpawn.error);
@@ -55,6 +55,33 @@ class Kubectl {
       err.code = cmdSpawn.status;
       return reject(err);
     })
+  }
+
+  portForward(svcs) {
+    const ret = [];
+    svcs.forEach(svc => {
+      let args = ['port-forward', svc.pod, `${svc.to}:${svc.from}`];
+      if ({}.hasOwnProperty.call(svc, 'namespace') === true) {
+        args.push('-n');
+        args.push(svc.namespace);
+      }
+      if ({}.hasOwnProperty.call(svc, 'context') === true) {
+        args.push('--context');
+        args.push(svc.context);
+      }
+      const pf = spawn(this.binary, args);
+      pf.stdout.on('data', (data) => {
+        console.log(`[${pf.pid}] stdout: ${data}`);
+      });
+      pf.stderr.on('data', (data) => {
+        console.log(`[${pf.pid}] stderr: ${data}`);
+      });
+      pf.on('close', (code) => {
+        console.log(`[${pf.pid}] child process exited with code ${code}`);
+      });
+      ret.push(pf);
+    });
+    return ret;
   }
 }
 
