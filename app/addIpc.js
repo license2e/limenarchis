@@ -7,9 +7,12 @@ window.uuid = uuid;
 window.limenarchis = window.limenarchis || {};
 window.ipc = {
   sendMessage (channel, args) {
+    console.log('sendMessage', channel, args);
     const id = window.uuid();
+    const receiver = `receiveMessage-${id}`;
     return new Promise((resolve, reject) => {
-      ipcRenderer.once(`receiveMessage-${id}`, (evt, dataType, data) => {
+      ipcRenderer.once(receiver, (evt, dataType, data) => {
+        console.log(receiver, dataType, data);
         if ({}.hasOwnProperty.call(window.limenarchis, dataType) === true) {
           const existingData = window.limenarchis[dataType];
           window.limenarchis[dataType] = Object.assign({}, existingData, data);

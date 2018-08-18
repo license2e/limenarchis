@@ -13,7 +13,7 @@ const saveSettings = (data) => {
     try {
       fs.statSync(SETTINGS_PATH);
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       fs.mkdirSync(SETTINGS_PATH);
     }
 
@@ -37,7 +37,7 @@ const getSettings = () => {
       settingsContent = fs.readFileSync(SETTINGS_FILE_PATH, 'utf8');
       resolve(settingsContent);
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       return saveSettings({})
         .then(() => {
           resolve('{}')
